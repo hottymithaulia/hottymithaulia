@@ -1,0 +1,63 @@
+acc = {
+    98: {'name': 'krish mithaulia'
+        , 'balance': 8000},
+    76: {'name': 'rajika saha'
+        , 'balance': 8000},
+    12: {'name': 'debu'
+        , 'balance': 8000}
+}
+active = True
+
+while active:
+    try:
+        n = int(input(" enter the acc no. u wanna have access of : ").title())
+        a = acc[n]['balance']
+        if n in acc:
+            n1 = input(
+                "what u wanna do , \n1. deposit\n2. withdrawal\n3. get acc creds(shows acc holder the acc "
+                "details\n4.delete acc\n5. exit \n".title())
+            if n1 == '1':
+
+                while True:
+                    try:
+                        n2 = float(input(" how much u wanna deposit : ").title())
+                        if n2 < 1000:
+                            print(" pls deposit mroe than 1000 to ur acc , the minimum deposit for a acc holder 1000 : ")
+
+
+                        elif n2 >= 1000:
+
+                            acc[n]['balance'] = a + n2
+                            print("ur money deposited in ur acc no. ", n, "and ur balance is", acc[n]['balance'])
+                            break
+                    except ValueError:
+                        print(" Invalid")
+                        continue
+            elif n1 == '5':
+                print(" thanks for using our atm !!! have a great day ", acc[n]['name'], '  !!')
+                break
+            elif n1 == '2':
+                while True:
+                    a1 = float(input(" enter the amt u wanna withdrawal ").title())
+                    if (a - a1) < 1000:
+                        print("re enter the amt u wanna withdraw , ur acc should have 1000 or more to be kept after "
+                              "withdrawing : ".title())
+                    elif (a - a1) > 1000:
+                        acc[n]['balance']=a-a1
+                        print("ur money withdrawl from ur acc no.",n,"and ur balance is ".title(),acc[n]['balance'])
+                        break
+            elif n1 == '3':
+                print(" ur acc details are here : ".title())
+                for x, y in acc[n].items():
+                    print(x, ' - ', y)
+            elif n1 == '4':
+                del acc[n]
+                a0 = int(input(" ur acc has been deleted, u can check it by typing 1 or 0 to exit "))
+                if a0 == 1:
+                    print(n in acc)
+                elif a0 == 0:
+                    print(" bye".upper())
+                    break
+    except KeyError:
+        print("we dont have that acc here sorry ")
+        continue
