@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @hottymithaulia
-- 👀 I’m interested in ... ehtical and web development  
+- 👀 I’m interested in ... ethical hacking and web development  
 - 🌱 I’m currently learning ...python and algorithms
 - 💞️ I’m looking to collaborate on ... nothing for rn i need guidance  
 - 📫 How to reach me ... @gamep8549@gmail.com 
