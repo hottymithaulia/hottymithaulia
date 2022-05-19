@@ -1,0 +1,18 @@
+#by krish mtihaulia 
+def kieth(n):  # making a function
+    n1 = n[::-1]  # taking a number as a str then reversing it
+    f = [0]  # making a list with a one element 0
+    [f.insert(0, int(x)) for x in n1]  # using list comprehension to insert str as int at 0's index one by one
+    for x in range(1, int(n)):  # main code
+        # running a loop till the int(n) for eg 197
+        if f[-2] == int(n):  # checking if 197 occurred by adding last 3 digits 
+
+            break  # terminating the loop of occurs
+        else:
+            f.insert(-1, sum(f[-abs(len(n1)) - 1:-1]))  # inserting the sum of last 3 digits excluding 0 at -1's index 
+    return True if int(n) in f else False  # returning true if  n is in the list else false 
+
+
+i = input(" enter a number : ")
+print("true" if kieth(i) else 'nto a kieth number ')
+# by krish mitahulia
