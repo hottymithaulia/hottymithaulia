@@ -1,0 +1,77 @@
+#tic tac tow by krish mithaulia 
+f = [['.', '.', '.'], ['.', '.', '.'], ['.', '.', '.']]
+for x in f:
+    for x1 in x:
+        print(x1, '  ', end=' ')
+    print('\n')
+
+
+def smmall_1(n12, cat):
+    c = 0
+    for x12 in n12:
+        if x12 == cat:
+            c = c + 1
+        else:
+            c = c - 1
+    return True if c == 3 else False
+
+
+def n_0(nan1, n1, n2, f5):
+    f5[nan1][n1] = n2
+    return f5
+
+
+li_t = [input("who is gonna take 'x' and 'o'\ntype 1 for 'x' and 2 for 'o'".title()) for i in range(1, 3)]
+if li_t[0] == '1' and li_t[-1] == '2':
+    c1, c2 = 'x', 'o'
+    print(f"so player 1 will play with {c1} and player 2 will play with {c2} :0")
+else:
+    c1, c2 = 'o', 'x'
+    print(f"so player 1 will play with {c1} and player 2 will play with {c2} :0")
+
+n: int = 2
+while n > 0:
+    print(" it ur turn : ),enter in A(ij) order , that means i is row , j is column ")
+    if n % 2 == 0:
+        print("its ur turn player one : ")
+        i = int(input(" row no. : "))
+        j = int(input(" column no. :"))
+        f1 = n_0(i - 1, j - 1, c1, f)
+    else:
+        print("its ur turn player Two : ")
+        i1 = int(input(" row no. : "))
+        j1 = int(input(" column no. :"))
+        f1 = n_0(i1 - 1, j1 - 1, c2, f)
+
+    for x in f1:
+        for x1 in x:
+            print(x1, '  ', end=' ')
+        print('\n')
+    if (smmall_1(f[0], c1) or smmall_1(f[1], c1) or smmall_1(f[2], c1)) or (
+            f[0][0] == c1 and f[1][0] == c1 and f[2][0] == c1) or (
+            f[0][1] == c1 and f[1][1] == c1 and f[2][1] == c1) or (
+            f[0][2] == c1 and f[1][1] == c1 and f[2][0] == c1) or (
+            f[0][0] == c1 and f[1][1] == c1 and f[2][2] == c1) or (
+            f[0][2] ==c1 and f[1][2]==c1 and f[2][2]==c1):
+
+        print(f"{c1} wins the game yay")
+
+        break
+    elif (smmall_1(f[0], c2) or smmall_1(f[1], c2) or smmall_1(f[2], c2)) or (
+            f[0][0] == c2 and f[1][0] == c2 and f[2][0] == c2) or (
+            f[0][1] == c2 and f[1][1] == c2 and f[2][1] == c2) or (
+            f[0][2] == c2 and f[1][1] == c2 and f[2][0] == c2) or (
+            f[0][0] == c2 and f[1][1] == c2 and f[2][2] == c2) or (
+            f[0][2] == c1 and f[1][2] == c1 and f[2][2] == c1):
+        print(f"{c2} wins the game yay")
+
+        break
+    elif (smmall_1(f[0], c2) or smmall_1(f[1], c2) or smmall_1(f[2], c2)) or (
+            f[0][0] != c2 and f[1][0] != c2 and f[2][0] != c2) or (
+            f[0][1] != c2 and f[1][1] != c2 and f[2][1] != c2) or (
+            f[0][2] != c2 and f[1][1] != c2 and f[2][0] != c2) or (
+            f[0][0] != c2 and f[1][1] != c2 and f[2][2] != c2) or (
+            f[0][2] != c1 and f[1][2] != c1 and f[2][2] != c1):
+
+     n += 1
+#krish mtiahulia
