@@ -1,4 +1,4 @@
-#tic tac tow by krish mithaulia 
+# tic tac tow by krish mithaulia
 f = [['.', '.', '.'], ['.', '.', '.'], ['.', '.', '.']]
 for x in f:
     for x1 in x:
@@ -29,8 +29,8 @@ else:
     c1, c2 = 'o', 'x'
     print(f"so player 1 will play with {c1} and player 2 will play with {c2} :0")
 
-n: int = 2
-while n > 0:
+n= 2
+while n <27:
     print(" it ur turn : ),enter in A(ij) order , that means i is row , j is column ")
     if n % 2 == 0:
         print("its ur turn player one : ")
@@ -52,7 +52,7 @@ while n > 0:
             f[0][1] == c1 and f[1][1] == c1 and f[2][1] == c1) or (
             f[0][2] == c1 and f[1][1] == c1 and f[2][0] == c1) or (
             f[0][0] == c1 and f[1][1] == c1 and f[2][2] == c1) or (
-            f[0][2] ==c1 and f[1][2]==c1 and f[2][2]==c1):
+            f[0][2] == c1 and f[1][2] == c1 and f[2][2] == c1):
 
         print(f"{c1} wins the game yay")
 
@@ -64,14 +64,6 @@ while n > 0:
             f[0][0] == c2 and f[1][1] == c2 and f[2][2] == c2) or (
             f[0][2] == c1 and f[1][2] == c1 and f[2][2] == c1):
         print(f"{c2} wins the game yay")
-
         break
-    elif (smmall_1(f[0], c2) or smmall_1(f[1], c2) or smmall_1(f[2], c2)) or (
-            f[0][0] != c2 and f[1][0] != c2 and f[2][0] != c2) or (
-            f[0][1] != c2 and f[1][1] != c2 and f[2][1] != c2) or (
-            f[0][2] != c2 and f[1][1] != c2 and f[2][0] != c2) or (
-            f[0][0] != c2 and f[1][1] != c2 and f[2][2] != c2) or (
-            f[0][2] != c1 and f[1][2] != c1 and f[2][2] != c1):
-
-     n += 1
-#krish mtiahulia
+    else:
+        pass
