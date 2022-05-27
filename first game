@@ -1,16 +1,16 @@
 # tic tac tow by krish mithaulia
 f = [['.', '.', '.'], ['.', '.', '.'], ['.', '.', '.']]
-for x in f:
-    for x1 in x:
-        print(x1, '  ', end=' ')
+for iter_2 in f:
+    for el_in_iter2 in iter_2:
+        print(el_in_iter2, '  ', end=' ')
     print('\n')
 
 
 def dot_in(gir):
     c = 0
-    for x in range(0, len(gir) - 1):
-        for x1 in gir[x]:
-            if '.' in x1:
+    for iter_1 in range(0, len(gir) - 1):
+        for el_in_iter in gir[iter_1]:
+            if '.' in el_in_iter:
                 c = c + 1
     return True if c == 0 else False
 
@@ -45,43 +45,58 @@ n = 2
 while n < 11:
     print("it ur turn : ),enter in A(ij) order , that means i is row , j is column \n".title())
     if n % 2 == 0:
-        print("its ur turn player one : ".title())
-        i = int(input("row no. : ".title()))
-        j = int(input("column no. :".title()))
-        if n_0(i - 1, j - 1, c1, f)[0]==1:
-            print("THAT PLACE IS ALREADY FILLED.\nMOVE TO WHICH PLACE? ")
-            f1 = n_0(i - 1, j - 1, c1, f)
-
-            for x in f1[-1]:
-                for x1 in x:
-                    print(x1, '  ', end=' ')
-                print('\n')
-
+        print("its ur turn player one : \n".title())
+        try:
+            i = int(input("row no. : \t".title()))
+            j = int(input("column no. \t:".title()))
+            if i > 3 or j > 3:
+                raise ValueError
+        except ValueError:
+            print("pls enter the raw and column u wanna place ur 'X' or 'O' \n".upper())
         else:
-            f1 = n_0(i - 1, j - 1, c1, f)
-            for x in f1[-1]:
-                for x1 in x:
-                    print(x1, '  ', end=' ')
-                print('\n')
+            if n_0(i - 1, j - 1, c1, f)[0] == 1:
+                n = n - 1
+                print("THAT PLACE IS ALREADY FILLED.\nMOVE TO WHICH PLACE? ")
+                f1 = n_0(i - 1, j - 1, c1, f)
 
-    else:
-        print("its ur turn player Two : ".title())
-        i1 = int(input(" row no. : ".strip().title()))
-        j1 = int(input(" column no. :".strip().title()))
-        if n_0(i1 - 1, j1 - 1, c2, f)[0]==1:
-            print("THAT PLACE IS ALREADY FILLED.\nMOVE TO WHICH PLACE? ")
-            f1 = n_0(i1 - 1, j1 - 1, c2, f)
-            for x in f1[-1]:
-                for x1 in x:
-                    print(x1, '  ', end=' ')
-                print('\n')
+                for x in f1[-1]:
+                    for x1 in x:
+                        print(x1, '  ', end=' ')
+                    print('\n')
 
+            else:
+                f1 = n_0(i - 1, j - 1, c1, f)
+                for x in f1[-1]:
+                    for x1 in x:
+                        print(x1, '  ', end=' ')
+                    print('\n')
+
+    elif n % 2 == 1:
+
+        print("its ur turn player Two : \n".title())
+        try:
+            i1 = int(input(" row no. :\t".strip().title()))
+            j1 = int(input(" column no. :\t".strip().title()))
+            if i1 > 3 or j1 > 3:
+                raise ValueError
+        except ValueError:
+            print("pls enter the raw and column u wanna place ur 'X' or 'O' \n".upper())
         else:
-            f1 = n_0(i1 - 1, j1 - 1, c2, f)
-            for x in f1[-1]:
-                for x1 in x:
-                    print(x1, '  ', end=' ')
-                print('\n')
+            if n_0(i1 - 1, j1 - 1, c2, f)[0] == 1:
+                print("THAT PLACE IS ALREADY FILLED.\nMOVE TO WHICH PLACE? ")
+                n = n - 1
+                f1 = n_0(i1 - 1, j1 - 1, c2, f)
+                for x in f1[-1]:
+                    for x1 in x:
+                        print(x1, '  ', end=' ')
+                    print('\n')
+
+            else:
+                f1 = n_0(i1 - 1, j1 - 1, c2, f)
+                for x in f1[-1]:
+                    for x1 in x:
+                        print(x1, '  ', end=' ')
+                    print('\n')
 
     if (smmall_1(f[0], c1) or smmall_1(f[1], c1) or smmall_1(f[2], c1)) or (
             f[0][0] == c1 and f[1][0] == c1 and f[2][0] == c1) or (
