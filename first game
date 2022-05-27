@@ -6,6 +6,15 @@ for x in f:
     print('\n')
 
 
+def dot_in(gir):
+    c = 0
+    for x in range(0, len(gir) - 1):
+        for x1 in gir[x]:
+            if '.' in x1:
+                c = c + 1
+    return True if c == 0 else False
+
+
 def smmall_1(n12, cat):
     c = 0
     for x12 in n12:
@@ -29,8 +38,8 @@ else:
     c1, c2 = 'o', 'x'
     print(f"so player 1 will play with {c1} and player 2 will play with {c2} :0")
 
-n= 2
-while n <27:
+n = 2
+while n < 11:
     print(" it ur turn : ),enter in A(ij) order , that means i is row , j is column ")
     if n % 2 == 0:
         print("its ur turn player one : ")
@@ -64,6 +73,10 @@ while n <27:
             f[0][0] == c2 and f[1][1] == c2 and f[2][2] == c2) or (
             f[0][2] == c1 and f[1][2] == c1 and f[2][2] == c1):
         print(f"{c2} wins the game yay")
+
         break
-    else:
-        pass
+    n += 1
+else:
+    print(" draw!!!!!!".strip().upper())
+
+   
