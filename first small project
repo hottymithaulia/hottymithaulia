@@ -1,65 +1,109 @@
-#krishmithaulia_still_a_beginner
-acc = {
-    98: {'name': 'krish mithaulia'
-        , 'balance': 8000},
-    76: {'name': 'rajika saha'
-        , 'balance': 8000},
-    12: {'name': 'debu'
-        , 'balance': 8000}
-}
-active = True
-
-while active:
-    try:
-        n = int(input(" enter the acc no. u wanna have access of : ").title())
-        a = acc[n]['balance']
-        if n in acc:
-            n1 = input(
-                "what u wanna do , \n1. deposit\n2. withdrawal\n3. get acc creds(shows acc holder the acc "
-                "details\n4.delete acc\n5. exit \n".title())
-            if n1 == '1':
-
-                while True:
-                    try:
-                        n2 = float(input(" how much u wanna deposit : ").title())
-                        if n2 < 1000:
-                            print(" pls deposit mroe than 1000 to ur acc , the minimum deposit for a acc holder 1000 : ")
+# tic tac tow by krish mithaulia
+f = [['.', '.', '.'], ['.', '.', '.'], ['.', '.', '.']]
+for iter_2 in f:
+    for el_in_iter2 in iter_2:
+        print(el_in_iter2, '  ', end=' ')
+    print('\n')
 
 
-                        elif n2 >= 1000:
+def dot_in(gir):
+    c = 0
+    for iter_1 in range(0, len(gir) - 1):
+        for el_in_iter in gir[iter_1]:
+            if '.' in el_in_iter:
+                c = c + 1
+    return True if c == 0 else False
 
-                            acc[n]['balance'] = a + n2
-                            print("ur money deposited in ur acc no. ", n, "and ur balance is", acc[n]['balance'])
-                            break
-                    except ValueError:
-                        print(" Invalid")
-                        continue
-            elif n1 == '5':
-                print(" thanks for using our atm !!! have a great day ", acc[n]['name'], '  !!')
-                break
-            elif n1 == '2':
-                while True:
-                    a1 = float(input(" enter the amt u wanna withdrawal ").title())
-                    if (a - a1) < 1000:
-                        print("re enter the amt u wanna withdraw , ur acc should have 1000 or more to be kept after "
-                              "withdrawing : ".title())
-                    elif (a - a1) > 1000:
-                        acc[n]['balance']=a-a1
-                        print("ur money withdrawl from ur acc no.",n,"and ur balance is ".title(),acc[n]['balance'])
-                        break
-            elif n1 == '3':
-                print(" ur acc details are here : ".title())
-                for x, y in acc[n].items():
-                    print(x, ' - ', y)
-            elif n1 == '4':
-                del acc[n]
-                a0 = int(input(" ur acc has been deleted, u can check it by typing 1 or 0 to exit "))
-                if a0 == 1:
-                    print(n in acc)
-                elif a0 == 0:
-                    print(" bye".upper())
-                    break
-    except KeyError:
-        print("we dont have that acc here sorry ")
-        continue
-#krish_mithaulia
+
+def smmall_1(n12, cat):
+    c = 0
+    for x12 in n12:
+        if x12 == cat:
+            c = c + 1
+        else:
+            c = c - 1
+    return True if c == 3 else False
+
+
+def n_0(nan1, n1, n2, f5):
+    if f5[nan1][n1] == '.':
+        f5[nan1][n1] = n2
+        return f5
+    else:
+        return [1, f5]
+
+
+li_t = [input("who is gonna take 'x' and 'o'\ntype 1 for 'x' and 2 for 'o' \n".title()) for i in range(1, 3)]
+if li_t[0] == '1' and li_t[-1] == '2':
+    c1, c2 = 'X', 'O'
+    print(f"so player 1 will play with {c1} and player 2 will play with {c2} :0\n".title())
+else:
+    c1, c2 = 'O', 'X'
+    print(f"so player 1 will play with {c1} and player 2 will play with {c2} :0\n".title())
+
+n = 2
+while n < 11:
+    print("it ur turn : ),enter in A(ij) order , that means i is row , j is column \n".title())
+    if n % 2 == 0:
+        print("its ur turn player one : \n".title())
+        i = int(input("row no. : \t".title()))
+        j = int(input("column no. \t:".title()))
+        if n_0(i - 1, j - 1, c1, f)[0] == 1:
+            n = n - 1
+            print("THAT PLACE IS ALREADY FILLED.\nMOVE TO WHICH PLACE? ")
+            f1 = n_0(i - 1, j - 1, c1, f)
+
+            for x in f1[-1]:
+                for x1 in x:
+                    print(x1, '  ', end=' ')
+                print('\n')
+
+        else:
+            f1 = n_0(i - 1, j - 1, c1, f)
+            for x in f1[-1]:
+                for x1 in x:
+                    print(x1, '  ', end=' ')
+                print('\n')
+
+    else:
+        print("its ur turn player Two : \n".title())
+        i1 = int(input(" row no. :\t".strip().title()))
+        j1 = int(input(" column no. :\t".strip().title()))
+        if n_0(i1 - 1, j1 - 1, c2, f)[0] == 1:
+            print("THAT PLACE IS ALREADY FILLED.\nMOVE TO WHICH PLACE? ")
+            n = n - 1
+            f1 = n_0(i1 - 1, j1 - 1, c2, f)
+            for x in f1[-1]:
+                for x1 in x:
+                    print(x1, '  ', end=' ')
+                print('\n')
+
+        else:
+            f1 = n_0(i1 - 1, j1 - 1, c2, f)
+            for x in f1[-1]:
+                for x1 in x:
+                    print(x1, '  ', end=' ')
+                print('\n')
+
+    if (smmall_1(f[0], c1) or smmall_1(f[1], c1) or smmall_1(f[2], c1)) or (
+            f[0][0] == c1 and f[1][0] == c1 and f[2][0] == c1) or (
+            f[0][1] == c1 and f[1][1] == c1 and f[2][1] == c1) or (
+            f[0][2] == c1 and f[1][1] == c1 and f[2][0] == c1) or (
+            f[0][0] == c1 and f[1][1] == c1 and f[2][2] == c1) or (
+            f[0][2] == c1 and f[1][2] == c1 and f[2][2] == c1):
+
+        print(f"{c1} wins the game yay".title())
+
+        break
+    elif (smmall_1(f[0], c2) or smmall_1(f[1], c2) or smmall_1(f[2], c2)) or (
+            f[0][0] == c2 and f[1][0] == c2 and f[2][0] == c2) or (
+            f[0][1] == c2 and f[1][1] == c2 and f[2][1] == c2) or (
+            f[0][2] == c2 and f[1][1] == c2 and f[2][0] == c2) or (
+            f[0][0] == c2 and f[1][1] == c2 and f[2][2] == c2) or (
+            f[0][2] == c1 and f[1][2] == c1 and f[2][2] == c1):
+        print(f"{c2} wins the game yay".title())
+
+        break
+    n += 1
+else:
+    print(" draw!!!!!!".strip().upper())
